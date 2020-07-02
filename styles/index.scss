@@ -283,12 +283,12 @@ text {
 
 $candColors: (
   park: #8cbf82,
-  need1: #D9D3EB,
-  need2: #7D739C,
-  need3: #4A4061,
-  industrial: #F2D2C7,
-  cemetery: #F2BAAE,
-  university: #DF8F86
+  need1: #F2C9AC,
+  need2: #DEA381,
+  need3: #C28059,
+  industrial: #dddddd,
+  cemetery: #dddddd,
+  university: #dddddd
 );
 
 @each $cand, $color in $candColors {

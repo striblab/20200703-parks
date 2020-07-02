@@ -140,8 +140,8 @@ map.on('load', function() {
           'paint': {
             'fill-antialias' : true,
             'fill-opacity': 0.8,
-            'fill-outline-color': "#F2D2C7",
-            'fill-color': "#F2D2C7"
+            'fill-outline-color': "#eeeeee",
+            'fill-color': "#eeeeee"
           }
     }, 'road-primary');
 
@@ -159,8 +159,8 @@ map.on('load', function() {
             'paint': {
               'fill-antialias' : true,
               'fill-opacity': 0.8,
-              'fill-outline-color': "#F2D2C7",
-              'fill-color': "#F2D2C7"
+              'fill-outline-color': "#eeeeee",
+              'fill-color': "#eeeeee"
             }
       }, 'road-primary');
 
@@ -178,8 +178,8 @@ map.on('load', function() {
               'paint': {
                 'fill-antialias' : true,
                 'fill-opacity': 0.8,
-                'fill-outline-color': "#F2D2C7",
-                'fill-color': "#F2D2C7"
+                'fill-outline-color': "#eeeeee",
+                'fill-color': "#eeeeee"
               }
         }, 'road-primary');
 
@@ -221,12 +221,12 @@ map.on('load', function() {
                 'match',
                 ['get', 'ParkNeed_Final'],
                 3,
-                '#D9D3EB',
+                '#F2C9AC',
                 4,
-                '#7D739C',
+                '#DEA381',
                 5,
-                '#4A4061',
-                '#7D739C'
+                '#C28059',
+                '#DEA381'
                 ]
             }
       }, 'road-primary');
