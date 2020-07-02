@@ -254,14 +254,14 @@ map.on('load', function() {
 $(document).ready(function() {
   if (($("#wrapper").width() < 520)) {
       map.flyTo({
-          center: [-93.258144,44.95249],
+          center: [-93.267071,44.951518],
           zoom: 10.3
       });
   }
   $(window).resize(function() {
       if (($("#wrapper").width() < 520)){
           map.flyTo({
-              center: [-93.258144,44.95249],
+              center: [-93.267071,44.951518],
               zoom: 10.3
           });
       } else {
