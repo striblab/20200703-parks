@@ -102,6 +102,7 @@ text {
   font-weight: 700;
   font-size: 19px;
   line-height: 20px;
+  margin-bottom:5px;
   font-style: normal;
   color: #444;
 }
@@ -176,6 +177,13 @@ text {
 
   @media only screen and (max-width: 500px) {
     width:100% !important;
+  }
+}
+
+.mapboxgl-ctrl-group {
+
+  @media only screen and (max-width: 500px) {
+    display:none !important;
   }
 }
 
@@ -266,13 +274,21 @@ text {
   font-weight:bold;
 }
 
+.label {
+  font-weight:bold;
+  margin-top:5px;
+  margin-bottom:2px;
+  text-decoration: underline;
+}
 
 $candColors: (
-  damage: #FD8D3C,
-  building: #aaaaaa,
-  business: #FDBE85,
-  fire: #E6550D,
-  destroyed: #A63603,
+  park: #8cbf82,
+  need1: #D9D3EB,
+  need2: #7D739C,
+  need3: #4A4061,
+  industrial: #F2D2C7,
+  cemetery: #F2BAAE,
+  university: #DF8F86
 );
 
 @each $cand, $color in $candColors {
@@ -281,7 +297,7 @@ $candColors: (
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: 1px solid #333333;
+    border: 1px solid #ffffff;
     display: inline-block;
     margin-left: 2px;
     margin-right: 5px;
@@ -341,7 +357,7 @@ th.right {
 #map-legend, #map-legend2 {
   background-color:rgba(255, 255, 255, 0.7);;
   position:absolute;
-  top: 50px;
+  top: 10px;
   right: 10px;
   // width:202px;
   font-size:11px;

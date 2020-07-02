@@ -16,6 +16,9 @@ import utilsFn from './utils.js';
 import parks from '../sources/parks.json';
 import parksneed from '../sources/parksneed.json';
 import mpls from '../sources/minneapolis.json';
+import industrial from '../sources/industrial.json';
+import cemetery from '../sources/cemetery.json';
+import university from '../sources/university.json';
 
 const utils = utilsFn({});
 
@@ -46,7 +49,7 @@ const map = new mapboxgl.Map({
   style: 'mapbox://styles/startribune/ck1b7427307bv1dsaq4f8aa5h',
   center: center,
   zoom: zoom,
-  minZoom: 10.5,
+  minZoom: 10,
   maxZoom: 16,
   maxBounds: [-97.25, 43.2, -89.53, 49.5],
   scrollZoom: false
@@ -114,7 +117,6 @@ $('.my-custom-control').on('click', function(){
 }
 
 
-
 /********** MAP BEHAVIORS **********/
 
 map.on('load', function() {
@@ -123,6 +125,63 @@ map.on('load', function() {
     'water',
     'fill-color','#ededed' 
   );
+
+  map.addSource('industrial', {
+    type: 'geojson',
+    data: industrial
+  });
+ 
+   map.addLayer({
+        'id': 'industrial-layer',
+        'interactive': true,
+        'source': 'industrial',
+        'layout': {},
+        'type': 'fill',
+          'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.8,
+            'fill-outline-color': "#F2D2C7",
+            'fill-color': "#F2D2C7"
+          }
+    }, 'road-primary');
+
+    map.addSource('cemetery', {
+      type: 'geojson',
+      data: cemetery
+    });
+   
+     map.addLayer({
+          'id': 'cemetery-layer',
+          'interactive': true,
+          'source': 'cemetery',
+          'layout': {},
+          'type': 'fill',
+            'paint': {
+              'fill-antialias' : true,
+              'fill-opacity': 0.8,
+              'fill-outline-color': "#F2D2C7",
+              'fill-color': "#F2D2C7"
+            }
+      }, 'road-primary');
+
+      map.addSource('university', {
+        type: 'geojson',
+        data: university
+      });
+     
+       map.addLayer({
+            'id': 'university-layer',
+            'interactive': true,
+            'source': 'university',
+            'layout': {},
+            'type': 'fill',
+              'paint': {
+                'fill-antialias' : true,
+                'fill-opacity': 0.8,
+                'fill-outline-color': "#F2D2C7",
+                'fill-color': "#F2D2C7"
+              }
+        }, 'road-primary');
 
   map.addSource('parks', {
     type: 'geojson',
@@ -158,7 +217,17 @@ map.on('load', function() {
               'fill-antialias' : true,
               'fill-opacity': 0.8,
               'fill-outline-color': "#7D739C",
-              'fill-color': "#7D739C"
+              'fill-color': [
+                'match',
+                ['get', 'ParkNeed_Final'],
+                3,
+                '#D9D3EB',
+                4,
+                '#7D739C',
+                5,
+                '#4A4061',
+                '#7D739C'
+                ]
             }
       }, 'road-primary');
 
@@ -183,21 +252,22 @@ map.on('load', function() {
 
 
 $(document).ready(function() {
-  if (($("#wrapper").width() < 500)) {
+  if (($("#wrapper").width() < 520)) {
       map.flyTo({
-          center: center,
-          zoom: 10
+          center: [-93.258144,44.95249],
+          zoom: 10.3
       });
   }
   $(window).resize(function() {
-      if (($("#wrapper").width() < 500)){
+      if (($("#wrapper").width() < 520)){
           map.flyTo({
-              center: center,
-              zoom: 10
+              center: [-93.258144,44.95249],
+              zoom: 10.3
           });
       } else {
           map.flyTo({
-              center: center
+              center: center,
+              zoom: zoom
           });
       }
   });
