@@ -183,15 +183,17 @@ map.on('load', function() {
 
 
 $(document).ready(function() {
-  if (($("#map").width() < 600)) {
+  if (($("#wrapper").width() < 500)) {
       map.flyTo({
-          center: center
+          center: center,
+          zoom: 10
       });
   }
   $(window).resize(function() {
-      if (($("#map").width() < 600)){
+      if (($("#wrapper").width() < 500)){
           map.flyTo({
-              center: center
+              center: center,
+              zoom: 10
           });
       } else {
           map.flyTo({
