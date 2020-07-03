@@ -29,7 +29,7 @@ const adaptive_ratio = utils.isMobile() ? 1.1 : 1.3; // Height/width ratio for a
 let popover = new Popover('#map-popover');
 
 
-
+let invalid = 0;
 let center = [-93.265354, 44.968524];
 let zoom = 10.5;
 
@@ -126,63 +126,6 @@ map.on('load', function() {
     'fill-color','#ededed' 
   );
 
-  map.addSource('industrial', {
-    type: 'geojson',
-    data: industrial
-  });
- 
-   map.addLayer({
-        'id': 'industrial-layer',
-        'interactive': true,
-        'source': 'industrial',
-        'layout': {},
-        'type': 'fill',
-          'paint': {
-            'fill-antialias' : true,
-            'fill-opacity': 0.8,
-            'fill-outline-color': "#eeeeee",
-            'fill-color': "#eeeeee"
-          }
-    }, 'road-primary');
-
-    map.addSource('cemetery', {
-      type: 'geojson',
-      data: cemetery
-    });
-   
-     map.addLayer({
-          'id': 'cemetery-layer',
-          'interactive': true,
-          'source': 'cemetery',
-          'layout': {},
-          'type': 'fill',
-            'paint': {
-              'fill-antialias' : true,
-              'fill-opacity': 0.8,
-              'fill-outline-color': "#eeeeee",
-              'fill-color': "#eeeeee"
-            }
-      }, 'road-primary');
-
-      map.addSource('university', {
-        type: 'geojson',
-        data: university
-      });
-     
-       map.addLayer({
-            'id': 'university-layer',
-            'interactive': true,
-            'source': 'university',
-            'layout': {},
-            'type': 'fill',
-              'paint': {
-                'fill-antialias' : true,
-                'fill-opacity': 0.8,
-                'fill-outline-color': "#eeeeee",
-                'fill-color': "#eeeeee"
-              }
-        }, 'road-primary');
-
   map.addSource('parks', {
     type: 'geojson',
     data: parks
@@ -230,6 +173,63 @@ map.on('load', function() {
                 ]
             }
       }, 'road-primary');
+
+      map.addSource('industrial', {
+        type: 'geojson',
+        data: industrial
+      });
+     
+       map.addLayer({
+            'id': 'industrial-layer',
+            'interactive': true,
+            'source': 'industrial',
+            'layout': {},
+            'type': 'fill',
+              'paint': {
+                'fill-antialias' : true,
+                'fill-opacity': 1,
+                'fill-outline-color': "#eeeeee",
+                'fill-color': "#eeeeee"
+              }
+        }, 'road-primary');
+    
+        map.addSource('cemetery', {
+          type: 'geojson',
+          data: cemetery
+        });
+       
+         map.addLayer({
+              'id': 'cemetery-layer',
+              'interactive': true,
+              'source': 'cemetery',
+              'layout': {},
+              'type': 'fill',
+                'paint': {
+                  'fill-antialias' : true,
+                  'fill-opacity': 1,
+                  'fill-outline-color': "#eeeeee",
+                  'fill-color': "#eeeeee"
+                }
+          }, 'road-primary');
+    
+          map.addSource('university', {
+            type: 'geojson',
+            data: university
+          });
+         
+           map.addLayer({
+                'id': 'university-layer',
+                'interactive': true,
+                'source': 'university',
+                'layout': {},
+                'type': 'fill',
+                  'paint': {
+                    'fill-antialias' : true,
+                    'fill-opacity': 1,
+                    'fill-outline-color': "#eeeeee",
+                    'fill-color': "#eeeeee"
+                  }
+            }, 'road-primary');
 
       map.addSource('mpls', {
         type: 'geojson',
